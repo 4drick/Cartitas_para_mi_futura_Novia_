@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta para Ti</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+   body {
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at center, #ffe1f0 0%, #bb377d 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  flex-direction: column; /* para que los elementos se apilen verticalmente */
+}
+
+
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      animation: float linear infinite;
+      opacity: 0.8;
+      filter: blur(2px);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .carta-container {
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .carta {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      padding: 25px 20px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      animation: aparecer 1s ease-out forwards;
+      text-align: justify;
+      transform: scale(0.95);
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: scale(0.85);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .carta h2 {
+      color: #d81b60;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+      text-align: center;
+    }
+
+    .carta p {
+      color: #222;
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: block;
+      margin: 25px auto 0;
+      padding: 12px 30px;
+      background: linear-gradient(45deg, #ff6b6b, #f06595);
+      color: white;
+      font-weight: bold;
+      font-size: 1.1em;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(240, 101, 149, 0.4);
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: linear-gradient(45deg, #f06595, #ff6b6b);
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(240, 101, 149, 0.6);
+    }
+
+    @media (max-width: 480px) {
+      .carta {
+        padding: 20px 16px;
+        font-size: 1em;
+      }
+
+      .carta h2 {
+        font-size: 1.5em;
+      }
+
+      .btn {
+        font-size: 1em;
+        padding: 10px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fondo animado -->
+  <div class="particles" id="particles-container"></div>
+
+  <!-- Carta -->
+  <div class="carta-container">
+    <div class="carta">
+      <h2>SEMANA 6</h2>
+      <p>
+        Desde que te conocí todo cambió, no fue de golpe, fue como cuando poco a poco empieza una nueva estación, al principio casi no se nota, pero después te das cuenta de que todo es distinto. Y mejor. Gracias a ti.<br><br>
+
+        Contigo me siento más feliz, más fuerte y más yo mismo, a sentirme bien.<br><br>
+
+        A veces me pongo a pensar en esas cosas pequeñas que me hacen quererte más cada día: cómo sonríes cuando hablas de algo que te gusta.<br><br>
+
+        Estar contigo me haces sentir: seguro, querido.<br><br>
+
+        Gracias por estar conmigo, por no rendirte, por darme tu cariño en los días cansados.<br><br>
+
+        Con mucho cariño,<br>
+        <strong>Atte: Adrick</strong>
+      </p>
+    </div>
+
+    <!-- Botón -->
+    <a href="../index.html" class="btn">Ir a la carta de la semana actual</a>
+  </div>
+
+  <!-- Script para partículas -->
+  <script>
+    const container = document.getElementById("particles-container");
+
+    for (let i = 0; i < 50; i++) {
+      const p = document.createElement("div");
+      p.classList.add("particle");
+
+      const size = Math.random() * 10 + 10; // 10px a 20px
+      const left = Math.random() * 100;
+      const duration = Math.random() * 10 + 8;
+      const delay = Math.random() * 5;
+
+      p.style.width = `${size}px`;
+      p.style.height = `${size}px`;
+      p.style.left = `${left}%`;
+      p.style.animationDuration = `${duration}s`;
+      p.style.animationDelay = `${delay}s`;
+
+      container.appendChild(p);
+    }
+  </script>
+
+</body>
+</html>

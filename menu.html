@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      background: #f0e6fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+      overflow-y: auto;
+padding-bottom: 150px; /* espacio para no tapar por las olas */
+
+    }
+
+    h1 {
+      color: #6a1b9a;
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(105, 0, 157, 0.7);
+      margin-bottom: 40px;
+      z-index: 10;
+    }
+
+    .accordion {
+      z-index: 10;
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .accordion-section {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .accordion-header {
+      background: #7b1fa2;
+      color: white;
+      cursor: pointer;
+      padding: 15px 20px;
+      font-size: 1.2em;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background: #4a0072;
+    }
+
+    .accordion-header::after {
+      content: '+';
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-header.active::after {
+      content: '−';
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: #f3e5f5;
+    }
+
+    .accordion-content a {
+      display: block;
+      padding: 15px 20px;
+      color: #7b1fa2;
+      text-decoration: none;
+      font-weight: 600;
+      border-top: 1px solid #ddd;
+      transition: background 0.3s ease;
+    }
+
+    .accordion-content a:hover {
+      background: #e1bee7;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: linear-gradient(45deg, #2d0ba6, #f06595);
+      color: white;
+      font-weight: bold;
+      font-size: 1.1em;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(240, 101, 149, 0.4);
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      margin-top: 30px;
+      z-index: 10;
+    }
+
+    .btn:hover {
+      background: linear-gradient(45deg, #f06595, #ff6b6b);
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(240, 101, 149, 0.6);
+    }
+
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .wave {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 20vh;
+      opacity: 0.3;
+      z-index: 1;
+      animation: waveAnimation 15s linear infinite;
+      border-radius: 100% 100% 0 0 / 50% 50% 0 0;
+    }
+
+    .wave1 {
+      background: linear-gradient(135deg, #9575cd 25%, #ce93d8 75%);
+      opacity: 0.4;
+      height: 25vh;
+      animation-duration: 20s;
+    }
+
+    .wave2 {
+      bottom: 10vh;
+      background: linear-gradient(135deg, #ce93d8 25%, #ba68c8 75%);
+      opacity: 0.3;
+      height: 15vh;
+      animation-duration: 25s;
+    }
+
+    .wave3 {
+      bottom: 15vh;
+      background: linear-gradient(135deg, #d1c4e9 25%, #9575cd 75%);
+      opacity: 0.35;
+      height: 10vh;
+      animation-duration: 30s;
+    }
+
+    @keyframes waveAnimation {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .accordion-header {
+        font-size: 1em;
+        padding: 12px 16px;
+      }
+
+      .accordion-content a {
+        padding: 12px 16px;
+        font-size: 0.95em;
+      }
+
+      .btn {
+        font-size: 1em;
+        padding: 10px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Repositorio</h1>
+
+  <div class="accordion">
+    <div class="accordion-section">
+      <div class="accordion-header">1er mes aniversario</div>
+      <div class="accordion-content">
+        <a href="Repositorio/1erMesAniversario/index.html">Ir a la carta de nuestro mes aniversario</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 6</div>
+      <div class="accordion-content">
+        <a href="Repositorio/semana6.html">Ir a la carta semana 6</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 7</div>
+      <div class="accordion-content">
+        <a href="pagina2.html">Ir a la carta semana 7</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 8</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 8</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 9</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 9</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 10</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 10</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 11</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 11</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 12</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 12</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 13</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 13</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 14</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 14</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 15</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 15</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 16</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 16</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 17</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 17</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 18</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 18</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 19</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 19</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 20</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 20</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 21</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 21</a>
+      </div>
+    </div>
+    <div class="accordion-section">
+      <div class="accordion-header">Semana 22</div>
+      <div class="accordion-content">
+        <a href="pagina3.html">Ir a la carta semana 22</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-container">
+    <a href="index.html" class="btn">Ir a la carta de la semana actual</a>
+  </div>
+
+  <div class="wave wave1"></div>
+  <div class="wave wave2"></div>
+  <div class="wave wave3"></div>
+
+  <script>
+    const headers = document.querySelectorAll('.accordion-header');
+
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const active = header.classList.contains('active');
+
+        headers.forEach(h => {
+          h.classList.remove('active');
+          h.nextElementSibling.style.maxHeight = null;
+        });
+
+        if (!active) {
+          header.classList.add('active');
+          const content = header.nextElementSibling;
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
