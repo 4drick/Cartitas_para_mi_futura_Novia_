@@ -11,69 +11,120 @@
       padding: 0;
     }
 
-   body {
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: radial-gradient(circle at center, #ffe1f0 0%, #bb377d 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 20px;
-  flex-direction: column; /* para que los elementos se apilen verticalmente */
-}
+    body {
+      min-height: 100vh;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to top, #004e92, #151e6d);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 20px;
+      overflow: hidden;
+      flex-direction: column;
+    }
 
-
-    .particles {
+    /* Fondo animado con múltiples olas SVG */
+    .olas {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: 0;
-      overflow: hidden;
       pointer-events: none;
     }
 
-    .particle {
+    .olas svg {
       position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.9);
-      animation: float linear infinite;
-      opacity: 0.8;
-      filter: blur(2px);
+      width: 100%;
+      height: auto;
     }
 
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1.2);
-        opacity: 0;
-      }
+    .ola1 {
+      bottom: 0;
+      opacity: 0.5;
+      animation: olaAnim1 8s infinite ease-in-out;
+    }
+
+    .ola2 {
+      bottom: 20%;
+      opacity: 0.35;
+      animation: olaAnim2 10s infinite ease-in-out;
+    }
+
+    .ola3 {
+      bottom: 40%;
+      opacity: 0.25;
+      animation: olaAnim3 12s infinite ease-in-out;
+    }
+    .ola4 {
+  bottom: 60%;
+  opacity: 0.12;
+  animation: olaAnim4 14s infinite ease-in-out;
+}
+
+.ola5 {
+  bottom: 75%;
+  opacity: 0.10;
+  animation: olaAnim5 16s infinite ease-in-out;
+}
+
+.ola6 {
+  bottom: 90%;
+  opacity: 0.08;
+  animation: olaAnim6 18s infinite ease-in-out;
+}
+
+@keyframes olaAnim4 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-25px); }
+}
+
+@keyframes olaAnim5 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+}
+
+@keyframes olaAnim6 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-15px); }
+}
+
+
+    @keyframes olaAnim1 {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-30px); }
+    }
+
+    @keyframes olaAnim2 {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(60px); }
+    }
+
+    @keyframes olaAnim3 {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-45px); }
     }
 
     .carta-container {
-      z-index: 1;
+      z-index: 2;
       width: 100%;
-      max-width: 420px;
+      max-width: 500px;
     }
 
     .carta {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      padding: 25px 20px;
-      border-radius: 18px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 30px 25px;
+      border-radius: 25px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
       animation: aparecer 1s ease-out forwards;
       text-align: justify;
       transform: scale(0.95);
+      color: #ffffff;
     }
 
     @keyframes aparecer {
@@ -88,38 +139,39 @@
     }
 
     .carta h2 {
-      color: #d81b60;
+      color: #a2d5f2;
       margin-bottom: 15px;
-      font-size: 1.8em;
+      font-size: 2em;
       text-align: center;
+      text-shadow: 1px 1px 2px #000;
     }
 
     .carta p {
-      color: #222;
-      font-size: 1.05em;
-      line-height: 1.6;
+      font-size: 1.15em;
+      line-height: 1.7;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
     }
 
     .btn {
       display: block;
       margin: 25px auto 0;
       padding: 12px 30px;
-      background: linear-gradient(45deg, #ff6b6b, #f06595);
+      background: linear-gradient(45deg, #00c6ff, #0a3f8a);
       color: white;
       font-weight: bold;
       font-size: 1.1em;
       border-radius: 30px;
       text-decoration: none;
-      box-shadow: 0 6px 15px rgba(240, 101, 149, 0.4);
+      box-shadow: 0 6px 15px rgba(0, 114, 255, 0.4);
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
       text-align: center;
     }
 
     .btn:hover {
-      background: linear-gradient(45deg, #f06595, #ff6b6b);
+      background: linear-gradient(45deg, #0072ff, #00c6ff);
       transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(240, 101, 149, 0.6);
+      box-shadow: 0 10px 25px rgba(0, 114, 255, 0.6);
     }
 
     @media (max-width: 480px) {
@@ -141,25 +193,85 @@
 </head>
 <body>
 
-  <!-- Fondo animado -->
-  <div class="particles" id="particles-container"></div>
+  <!-- Múltiples olas animadas -->
+  <div class="olas">
+    <svg class="ola1" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,40 C300,120 900,-40 1200,40 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.3)">
+        <animate attributeName="d" dur="8s" repeatCount="indefinite"
+          values="
+            M0,40 C300,120 900,-40 1200,40 L1200,120 L0,120 Z;
+            M0,30 C300,110 900,-30 1200,30 L1200,120 L0,120 Z;
+            M0,40 C300,120 900,-40 1200,40 L1200,120 L0,120 Z"/>
+      </path>
+    </svg>
+
+    <svg class="ola2" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,50 C400,100 800,0 1200,50 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.2)">
+        <animate attributeName="d" dur="10s" repeatCount="indefinite"
+          values="
+            M0,50 C400,100 800,0 1200,50 L1200,120 L0,120 Z;
+            M0,40 C400,90 800,10 1200,40 L1200,120 L0,120 Z;
+            M0,50 C400,100 800,0 1200,50 L1200,120 L0,120 Z"/>
+      </path>
+    </svg>
+
+    <svg class="ola3" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,60 C350,90 850,30 1200,60 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.15)">
+        <animate attributeName="d" dur="12s" repeatCount="indefinite"
+          values="
+            M0,60 C350,90 850,30 1200,60 L1200,120 L0,120 Z;
+            M0,50 C350,80 850,40 1200,50 L1200,120 L0,120 Z;
+            M0,60 C350,90 850,30 1200,60 L1200,120 L0,120 Z"/>
+      </path>
+    </svg>
+    <!-- Ola 4 -->
+<svg class="ola4" viewBox="0 0 1200 120" preserveAspectRatio="none">
+  <path d="M0,70 C350,60 850,80 1200,70 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.12)">
+    <animate attributeName="d" dur="14s" repeatCount="indefinite"
+      values="
+        M0,70 C350,60 850,80 1200,70 L1200,120 L0,120 Z;
+        M0,65 C350,55 850,85 1200,65 L1200,120 L0,120 Z;
+        M0,70 C350,60 850,80 1200,70 L1200,120 L0,120 Z"/>
+  </path>
+</svg>
+
+<!-- Ola 5 -->
+<svg class="ola5" viewBox="0 0 1200 120" preserveAspectRatio="none">
+  <path d="M0,85 C300,65 900,95 1200,85 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)">
+    <animate attributeName="d" dur="16s" repeatCount="indefinite"
+      values="
+        M0,85 C300,65 900,95 1200,85 L1200,120 L0,120 Z;
+        M0,80 C300,70 900,100 1200,80 L1200,120 L0,120 Z;
+        M0,85 C300,65 900,95 1200,85 L1200,120 L0,120 Z"/>
+  </path>
+</svg>
+
+<!-- Ola 6 -->
+<svg class="ola6" viewBox="0 0 1200 120" preserveAspectRatio="none">
+  <path d="M0,95 C400,80 800,110 1200,95 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.08)">
+    <animate attributeName="d" dur="18s" repeatCount="indefinite"
+      values="
+        M0,95 C400,80 800,110 1200,95 L1200,120 L0,120 Z;
+        M0,90 C400,85 800,115 1200,90 L1200,120 L0,120 Z;
+        M0,95 C400,80 800,110 1200,95 L1200,120 L0,120 Z"/>
+  </path>
+</svg>
+
+  </div>
 
   <!-- Carta -->
   <div class="carta-container">
     <div class="carta">
-      <h2>SEMANA 6</h2>
+      <h2>SEMANA 7</h2>
       <p>
-        Desde que te conocí todo cambió, no fue de golpe, fue como cuando poco a poco empieza una nueva estación, al principio casi no se nota, pero después te das cuenta de que todo es distinto. Y mejor. Gracias a ti.<br><br>
+        Hoy me vinieron a la mente muchas cosas que pasaron esta semana.
+        <br>
+No sé por qué, pero los recuerdos que vivimos en cada podcast sigue apareciendo en los momentos más simples… y se queda, pensando y admirando tu forma de ser y personalidad.
+<br>
+Me gusta nuestras conversaciones, nuestras risas espontáneas, y esos silencios que no incomodan. <br>
 
-        Contigo me siento más feliz, más fuerte y más yo mismo, a sentirme bien.<br><br>
-
-        A veces me pongo a pensar en esas cosas pequeñas que me hacen quererte más cada día: cómo sonríes cuando hablas de algo que te gusta.<br><br>
-
-        Estar contigo me haces sentir: seguro, querido.<br><br>
-
-        Gracias por estar conmigo, por no rendirte, por darme tu cariño en los días cansados.<br><br>
-
-        Con mucho cariño,<br>
+Bueno esta semana que paso estaba muy interesante , pensando de manera incipiente juntos sobre nuestro futuro y la finalidad de esta relacion, me gusto demasiado. <br>
+Te quiero mucho. <br>
         <strong>Atte: Adrick</strong>
       </p>
     </div>
@@ -168,28 +280,6 @@
     <a href="menu.html" class="btn">Ir al repositorio</a>
   </div>
 
-  <!-- Script para partículas -->
-  <script>
-    const container = document.getElementById("particles-container");
-
-    for (let i = 0; i < 50; i++) {
-      const p = document.createElement("div");
-      p.classList.add("particle");
-
-      const size = Math.random() * 10 + 10; // 10px a 20px
-      const left = Math.random() * 100;
-      const duration = Math.random() * 10 + 8;
-      const delay = Math.random() * 5;
-
-      p.style.width = `${size}px`;
-      p.style.height = `${size}px`;
-      p.style.left = `${left}%`;
-      p.style.animationDuration = `${duration}s`;
-      p.style.animationDelay = `${delay}s`;
-
-      container.appendChild(p);
-    }
-  </script>
-
 </body>
 </html>
+
